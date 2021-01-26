@@ -10,6 +10,5 @@ class Program
 
         Goblin goblin = new Goblin("Goblin", 10, 20);
         goblin.Hp = 0;
-
     }
 }
