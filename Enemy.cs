@@ -11,8 +11,8 @@ namespace EnemyManager
     */
     public class Enemy
     {
-        private int hp = 100;
-        private int speed = 10;
+        private int hp;
+        private int speed;
 
         //프로퍼티(Property) : 외부에 노출되는 속성(변수)
         public string Name { get; set; }
@@ -25,7 +25,7 @@ namespace EnemyManager
                 
                 if (this.hp <= 0)
                 {
-                    Console.WriteLine($"{this.Name} is died!");
+                    EnemyDie();
                 }
             }
         }
@@ -35,7 +35,7 @@ namespace EnemyManager
             get {return this.speed;}
             set {
                 this.speed = value;
-                Console.WriteLine("Changed Speed");
+                Console.WriteLine("P: Changed Speed");
 
                 if (value >= 100)
                 {
@@ -45,5 +45,47 @@ namespace EnemyManager
 
             }
         }
+    
+        //가상 메소드 - 상속받은 파생클래스에서 재정의 해서 사용할 수 있는 기능
+        public virtual void EnemyDie()
+        {
+            Console.WriteLine($"P: {this.Name} is died!");
+        }
     }    
+
+    //파생 클래스
+    public class Orc : Enemy
+    {
+        //생성자
+        public Orc()
+        {
+            this.Name  = "Orc Warrior";
+            this.Hp    = 100;
+            this.Speed = 5;
+        }
+
+        public override void EnemyDie()
+        {
+            base.EnemyDie();
+            Console.WriteLine($"{Name} 사망 = 보석 200");
+        }
+    }
+
+    //파생클래스
+    public class Goblin : Enemy
+    {
+        //생성자(Constructor)
+        public Goblin(string _Name, int _Hp, int _Speed)
+        {
+            this.Name  = _Name;
+            this.Hp    = _Hp;
+            this.Speed = _Speed;
+        }
+
+        public override void EnemyDie()
+        {
+            //base.EnemyDie();
+            Console.WriteLine($"{Name} 사망 보석 = 50");
+        }
+    }
 }
