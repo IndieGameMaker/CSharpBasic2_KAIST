@@ -60,8 +60,10 @@ namespace CSharpBasic2
             Console.WriteLine($"{orc.Name} speed = {orc.Speed}");
 
 
-
             Enemy goblin = new Enemy();
+            goblin.Name = "Goblin";
+            goblin.Speed = 50;
+            goblin.Hp = 0;
         }
     }
 }
