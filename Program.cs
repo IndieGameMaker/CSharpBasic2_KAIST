@@ -36,7 +36,7 @@ namespace CSharpBasic2
             set {
                 this.speed = value;
                 Console.WriteLine("Changed Speed");
-                
+
                 if (value >= 100)
                 {
                     this.speed = 100;
@@ -45,8 +45,6 @@ namespace CSharpBasic2
 
             }
         }
-
-        
     }
 
     class Program
@@ -57,6 +55,9 @@ namespace CSharpBasic2
             orc.Name = "Orc Warrior";
             Console.WriteLine($"Enemy Name is {orc.Name}");
             orc.Hp = 0;
+            orc.Speed = 50;
+            orc.Speed = 120;
+            Console.WriteLine($"{orc.Name} speed = {orc.Speed}");
 
 
 
